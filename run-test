@@ -104,6 +104,7 @@ def run_tests(program_name, test_name, repeat_count):
                 output=os.path.join(result_path, '{}-prep2.log'.format(run_index)))
             env['TIMECOMMAND_PREP3'] = '/usr/bin/time --output={output} --verbose'.format(
                 output=os.path.join(result_path, '{}-prep3.log'.format(run_index)))
+            env['WSK_TIMELOG'] = os.path.join(result_path, '{}.timelog'.format(run_index))
 
             try:
                 sub.check_call([test_command], stderr=sub.DEVNULL, stdout=sub.DEVNULL, env=env, cwd=build_path)
