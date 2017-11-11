@@ -1,18 +1,18 @@
 	Command being timed: "gg-force src/frontend/mosh-server"
-	User time (seconds): 1.09
-	System time (seconds): 0.37
-	Percent of CPU this job got: 2%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:58.19
+	User time (seconds): 1.12
+	System time (seconds): 0.36
+	Percent of CPU this job got: 1%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:16.18
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 264868
+	Maximum resident set size (kbytes): 250700
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 61878
-	Voluntary context switches: 5463
-	Involuntary context switches: 123
+	Minor (reclaiming a frame) page faults: 62766
+	Voluntary context switches: 5466
+	Involuntary context switches: 116
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 20528

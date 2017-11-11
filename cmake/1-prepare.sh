@@ -18,7 +18,7 @@ case "${__TEST_TYPE}" in
 
   GG)
     gg-init
-    CXX="g++" CC="gcc" GG_BYPASS=1 gg-run cmake ../source/
+    CXX="g++" CC="gcc" GG_BYPASS=1 gg-infer cmake ../source/
     ;;
 
   CCACHE)
