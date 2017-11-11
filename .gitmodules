@@ -22,3 +22,6 @@
 [submodule "git/source"]
 	path = git/source
 	url = https://github.com/git/git
+[submodule "vim/source"]
+	path = vim/source
+	url = https://github.com/vim/vim
