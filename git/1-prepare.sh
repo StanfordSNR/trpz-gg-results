@@ -1,0 +1,7 @@
+#!/bin/bash -ex
+
+git submodule update --init -- source/
+
+rm -rf build/
+cp -R source/ build/
+

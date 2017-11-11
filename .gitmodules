@@ -19,3 +19,6 @@
 [submodule "cmake/source"]
 	path = cmake/source
 	url = https://github.com/Kitware/CMake
+[submodule "git/source"]
+	path = git/source
+	url = https://github.com/git/git
