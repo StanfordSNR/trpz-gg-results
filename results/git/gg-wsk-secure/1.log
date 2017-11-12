@@ -1,21 +1,21 @@
 	Command being timed: "gg-force git"
-	User time (seconds): 3.69
-	System time (seconds): 0.77
-	Percent of CPU this job got: 3%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 2:23.45
+	User time (seconds): 3.82
+	System time (seconds): 0.61
+	Percent of CPU this job got: 2%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 2:55.08
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 251492
+	Maximum resident set size (kbytes): 272764
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 69173
-	Voluntary context switches: 8617
-	Involuntary context switches: 165
+	Minor (reclaiming a frame) page faults: 66689
+	Voluntary context switches: 9377
+	Involuntary context switches: 249
 	Swaps: 0
 	File system inputs: 0
-	File system outputs: 62192
+	File system outputs: 62160
 	Socket messages sent: 0
 	Socket messages received: 0
 	Signals delivered: 0

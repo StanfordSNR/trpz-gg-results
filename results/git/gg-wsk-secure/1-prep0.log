@@ -1,21 +1,21 @@
 	Command being timed: "gg-infer make -j4"
-	User time (seconds): 27.09
-	System time (seconds): 5.40
-	Percent of CPU this job got: 311%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:10.42
+	User time (seconds): 26.91
+	System time (seconds): 5.60
+	Percent of CPU this job got: 306%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:10.59
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 45940
+	Maximum resident set size (kbytes): 46132
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 1689396
-	Voluntary context switches: 16058
-	Involuntary context switches: 3977
+	Minor (reclaiming a frame) page faults: 1685285
+	Voluntary context switches: 16617
+	Involuntary context switches: 4499
 	Swaps: 0
 	File system inputs: 0
-	File system outputs: 390368
+	File system outputs: 409400
 	Socket messages sent: 0
 	Socket messages received: 0
 	Signals delivered: 0
