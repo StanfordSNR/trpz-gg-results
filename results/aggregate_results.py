@@ -1,0 +1,85 @@
+#!/usr/bin/env python3
+
+import os
+import sys
+import numpy
+import pprint
+
+from datetime import timedelta
+
+PROGRAMS = ['mosh', 'git', 'vim', 'openssh']
+EXPERIMENTS = ['gg-wsk-unsecure', 'gg-wsk-secure']
+
+TIME_LINE = 'Elapsed (wall clock) time (h:mm:ss or m:ss): '
+
+def parse_time(time_str):
+    seconds = 0
+    minutes = 0
+    hours = 0
+
+    d = time_str.split(':')
+
+    seconds = float(d[-1])
+
+    if len(d) > 1:
+        minutes = int(d[-2])
+    if len(d) > 2:
+        hours = int(d[-3])
+    if len(d) > 3:
+        raise Exception("wrong time string: %s" % time_str)
+
+    return timedelta(hours=hours, minutes=minutes, seconds=seconds)
+
+def stats(numbers):
+    return {
+        'mean': numpy.mean(numbers),
+        'median': numpy.median(numbers),
+        'std': numpy.std(numbers)
+    }
+
+def aggregate(program, experiment, count=10):
+    end_to_end = []
+    all_lambdas = []
+    exec_lambdas = []
+    child_proc = []
+
+    root = os.path.join(program, experiment)
+
+    for i in range(count):
+        # read the end to end time
+        with open(os.path.join(root, '%d.log' % i)) as fin:
+            for line in fin:
+                line = line.strip()
+                if line.startswith(TIME_LINE):
+                    end_to_end += [parse_time(line[len(TIME_LINE):]).total_seconds()]
+        
+        with open(os.path.join(root, '%d.timelog' % i)) as fin:
+            for line in fin:
+                line = line.strip()
+                exec_lambdas += [int(line.split(",")[1])]
+                child_proc += [int(line.split(",")[2])]
+
+        with open(os.path.join(root, '%d.timelog.upload' % i)) as fin:
+            for line in fin:
+                line = line.strip()
+                all_lambdas += [int(line.split(",")[1])]
+
+        with open(os.path.join(root, '%d.timelog.download' % i)) as fin:
+            for line in fin:
+                line = line.strip()
+                all_lambdas += [int(line.split(",")[1])]
+
+        all_lambdas += exec_lambdas
+
+    return {
+        'end_to_end (s)': stats(end_to_end),
+        'all_lambdas (ms)': stats(all_lambdas),
+        'exec_lambdas (ms)': stats(exec_lambdas),
+        'child_proc (ms)': stats(child_proc)
+    }
+
+for p in PROGRAMS:
+    for e in EXPERIMENTS:
+        print("{} / {}".format(p, e))
+        pprint.pprint(aggregate(p, e))
+        print()
