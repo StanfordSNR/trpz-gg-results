@@ -1,18 +1,18 @@
 	Command being timed: "gg-force src/vim"
-	User time (seconds): 1.47
-	System time (seconds): 0.39
-	Percent of CPU this job got: 1%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:35.01
+	User time (seconds): 1.44
+	System time (seconds): 0.43
+	Percent of CPU this job got: 2%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:22.75
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 237644
+	Maximum resident set size (kbytes): 239276
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 57373
-	Voluntary context switches: 7024
-	Involuntary context switches: 188
+	Minor (reclaiming a frame) page faults: 59158
+	Voluntary context switches: 6821
+	Involuntary context switches: 236
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 44336
