@@ -95,6 +95,7 @@ def aggregate(program, experiment, count=10):
 
 for p in PROGRAMS:
     for e in EXPERIMENTS:
-        print("{} / {}".format(p, e))
+        print("// {} / {}\n".format(p, e))
         pprint.pprint(aggregate(p, e))
         print()
+    print('/*' + ( '*' * 50 ) + '*/\n')
