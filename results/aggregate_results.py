@@ -40,42 +40,57 @@ def stats(numbers):
 def aggregate(program, experiment, count=10):
     end_to_end = []
     all_lambdas = []
+    total_lambdas = []
     exec_lambdas = []
     child_proc = []
+
+    lambda_count = None
 
     root = os.path.join(program, experiment)
 
     for i in range(count):
         # read the end to end time
+        this_lambdas = []
+
         with open(os.path.join(root, '%d.log' % i)) as fin:
             for line in fin:
                 line = line.strip()
                 if line.startswith(TIME_LINE):
                     end_to_end += [parse_time(line[len(TIME_LINE):]).total_seconds()]
-        
+                    break
+
         with open(os.path.join(root, '%d.timelog' % i)) as fin:
             for line in fin:
                 line = line.strip()
+                this_lambdas += [int(line.split(",")[1])]
                 exec_lambdas += [int(line.split(",")[1])]
                 child_proc += [int(line.split(",")[2])]
 
         with open(os.path.join(root, '%d.timelog.upload' % i)) as fin:
             for line in fin:
                 line = line.strip()
+                this_lambdas += [int(line.split(",")[1])]
                 all_lambdas += [int(line.split(",")[1])]
 
         with open(os.path.join(root, '%d.timelog.download' % i)) as fin:
             for line in fin:
                 line = line.strip()
+                this_lambdas += [int(line.split(",")[1])]
                 all_lambdas += [int(line.split(",")[1])]
 
         all_lambdas += exec_lambdas
+        total_lambdas += [sum(this_lambdas)]
+
+        if lambda_count == None:
+            lambda_count = len(this_lambdas)
+        else:
+            assert lambda_count == len(this_lambdas)
 
     return {
-        'end_to_end (s)': stats(end_to_end),
-        'all_lambdas (ms)': stats(all_lambdas),
-        'exec_lambdas (ms)': stats(exec_lambdas),
-        'child_proc (ms)': stats(child_proc)
+        '1. end-to-end (s)': stats(end_to_end),
+        '2. single lambda (ms)': stats(all_lambdas),
+        '3. total lambda runtime (ms)': stats(total_lambdas),
+        '4. lambda count': lambda_count
     }
 
 for p in PROGRAMS:
